@@ -1,6 +1,24 @@
-# babel-plugin-transform-import-meta
+# babel-plugin-transform-import-meta-empty
 
-Transforms import.meta for nodejs environments. This plugin replaces any occurrence of `import.meta.url`.
+It's possible to replace `import.meta.url` on an empty string. It can help in a react-native environment
+
+
+## Installation
+
+Install this package
+
+```javascript
+npm install --save-dev babel-plugin-transform-import-meta-empty
+```
+
+
+```json
+{
+  "plugins": [
+    ["babel-plugin-transform-import-meta-empty", { "module": "empty" }]
+  ]
+}
+```
 
 ```js
 console.log(import.meta.url);
@@ -9,39 +27,7 @@ console.log(import.meta.url);
 With this
 
 ```js
-console.log(require('url').pathToFileURL(__filename).toString());
-```
-
-## Installation
-
-Install this package
-
-```javascript
-npm install --save-dev babel-plugin-transform-import-meta
-```
-
-And configure it
-
-```json
-{
-  "plugins": [
-    "babel-plugin-transform-import-meta"
-  ]
-}
-```
-
-# Settings
-
-## ES6 modules
-
-It's possible to use ES6 modules for the output. Useful to delegate module transformation to other plugins.
-
-```json
-{
-  "plugins": [
-    ["babel-plugin-transform-import-meta", { "module": "ES6" }]
-  ]
-}
+console.log("");
 ```
 
 ## Credits
