@@ -3,7 +3,7 @@ import type { PluginObj, NodePath } from '@babel/core';
 import type { Statement, MemberExpression } from '@babel/types';
 
 export interface PluginOptions {
-  module?: 'CommonJS' | 'ES6' | undefined
+  module?: 'CommonJS' | 'ES6' | 'empty' | undefined
 }
 
 /**
@@ -25,8 +25,8 @@ export default function (): PluginObj {
     visitor: {
       Program (path, state) {
         const { module: target = 'CommonJS' } = (state.opts as PluginOptions | undefined) ?? {};
-        if (target !== 'CommonJS' && target !== 'ES6') {
-          throw new Error('Invalid target, must be one of: "CommonJS" or "ES6"');
+        if (target !== 'CommonJS' && target !== 'ES6' && target !== 'empty') {
+          throw new Error('Invalid target, must be one of: "CommonJS" or "ES6" or "empty"');
         }
         const metas: Array<NodePath<MemberExpression>> = [];
         const identifiers = new Set<string>();
@@ -57,6 +57,10 @@ export default function (): PluginObj {
         let metaUrlReplacement: Statement;
 
         switch (target) {
+          case 'empty': {
+            metaUrlReplacement = smart.ast`''` as Statement;
+            break;
+          }
           case 'CommonJS': {
             metaUrlReplacement = smart.ast`require('url').pathToFileURL(__filename).toString()` as Statement;
             break;
