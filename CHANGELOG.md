@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 3.0.0 (2024-04-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* import.meta on its own is no longer transpiled.
+* unknown import.meta properties are no longer transpiled.
+
+### Features
+
+* add support for ES6 targets ([77f855a](https://github.com/javiertury/babel-plugin-transform-import-meta/commit/77f855af8d2f15d94ec711fbe1c312a445e5f777)), closes [#5](https://github.com/javiertury/babel-plugin-transform-import-meta/issues/5)
+* create plugin ([dd1a3f7](https://github.com/javiertury/babel-plugin-transform-import-meta/commit/dd1a3f7ddf3a55acfe4f76859443cd9cec8ed5b2))
+* switch to pnpm ([22e8ab9](https://github.com/javiertury/babel-plugin-transform-import-meta/commit/22e8ab91c2fcc8efb33f154ae7f8469f6b0e20e7))
+
+
+### Bug Fixes
+
+* "package.json#exports" and "mjs" extension ([f4597ea](https://github.com/javiertury/babel-plugin-transform-import-meta/commit/f4597eafb9d4668f1ae283ba879d8d6cc86820de))
+* compatibility with transformers of unknown properties ([383053c](https://github.com/javiertury/babel-plugin-transform-import-meta/commit/383053c2d1e976d1431229096e2157e2344bbd51)), closes [#2](https://github.com/javiertury/babel-plugin-transform-import-meta/issues/2)
+* import ast from smart instead of default export of @babel/template ([88e058f](https://github.com/javiertury/babel-plugin-transform-import-meta/commit/88e058f4b4bc5ba3048a815b0b9fe3edcb43f8de))
+* make some dependencies dev dependencies ([4decc60](https://github.com/javiertury/babel-plugin-transform-import-meta/commit/4decc609a72eaef2ade16f83fc65415b8dc2c499))
+* **release:** publish only files in lib ([0d152b7](https://github.com/javiertury/babel-plugin-transform-import-meta/commit/0d152b7d08bff80279fc6907a69b6d8134d22d4b))
+* rename prepare script ([ea9f8db](https://github.com/javiertury/babel-plugin-transform-import-meta/commit/ea9f8db2c45744bed3578e8ea1db05162209e886))
+
 ### [2.2.1](https://github.com/javiertury/babel-plugin-transform-import-meta/compare/v2.2.0...v2.2.1) (2023-08-04)
 
 ## [2.2.0](https://github.com/javiertury/babel-plugin-transform-import-meta/compare/v2.1.1...v2.2.0) (2022-06-21)
